@@ -1,10 +1,10 @@
-require('dotenv').config();
+
 const axios=require('axios');
 const cron=require('node-cron');
 
 async function fecthAndScheduleJobs(){
    try {
-    const resp=await axios.get(process.env.LARAVEL_API);
+    const resp=await axios.get('http://127.0.0.1:8000/api/active-cron-jobs');
     const jobs=resp.data;
 
     jobs.forEach(job => {
